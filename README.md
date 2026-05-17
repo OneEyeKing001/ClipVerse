@@ -6,3 +6,4 @@ Implement dark mode toggle
 Fix footer alignment on mobile
 Add clip sharing functionality
 Optimize CSS bundle size
+Update meta tags for SEO
