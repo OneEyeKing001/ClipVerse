@@ -8,3 +8,4 @@ Add clip sharing functionality
 Optimize CSS bundle size
 Update meta tags for SEO
 Add animation transitions
+Fix cross-browser compatibility
