@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 60" width="240" height="60" fill="none">
+  <defs>
+    <linearGradient id="cvGradB" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#8b5cf6"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(10, 10)">
+    <!-- Video filmstrip clip vertex -->
+    <rect x="2" y="2" width="36" height="36" rx="8" stroke="url(#cvGradB)" stroke-width="2.5" fill="#0d0f17"/>
+    <polygon points="16,12 28,20 16,28" fill="url(#cvGradB)"/>
+    <circle cx="32" cy="8" r="3" fill="#10b981"/>
+  </g>
+  <g transform="translate(58, 38)">
+    <text font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-weight="900" font-size="22" letter-spacing="1" fill="#ffffff">
+      CLIP<tspan fill="#a855f7">VERSE</tspan>
+    </text>
+  </g>
+</svg>
