@@ -124,6 +124,94 @@ html, body {
   }
 }
 
+/* Navigation & Header Optimization (Hamburger visible <= 1110px, Full Nav above 1110px) */
+@media (max-width: 1110px) {
+  .header {
+    padding: 10px 0;
+  }
+
+  .nav-container {
+    gap: 8px;
+  }
+
+  .brand-logo img {
+    height: 32px;
+  }
+
+  /* Hide Telegram button in topbar at <= 1110px, accessible in drawer */
+  .nav-actions .btn-secondary {
+    display: none !important;
+  }
+
+  .nav-actions {
+    gap: 8px;
+  }
+
+  .nav-actions .btn-primary {
+    padding: 7px 12px;
+    font-size: 0.8rem;
+  }
+
+  .mobile-toggle {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 10px;
+    font-size: 1.1rem;
+  }
+
+  .nav-links {
+    display: none;
+    position: fixed;
+    top: 56px;
+    left: 0;
+    right: 0;
+    background: rgba(10, 12, 20, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border-card);
+    padding: 24px 20px;
+    flex-direction: column;
+    gap: 18px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.9);
+    z-index: 99;
+  }
+
+  .nav-links.mobile-open {
+    display: flex !important;
+  }
+}
+
+/* How It Works (Campaign Runs End to End): 2-Col layout between 632px and 935px with 3rd box centered */
+@media (min-width: 632px) and (max-width: 935px) {
+  .how-it-works-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 24px !important;
+  }
+
+  .how-it-works-grid > div:last-child {
+    grid-column: 1 / -1 !important;
+    width: 100% !important;
+    max-width: calc(50% - 12px) !important;
+    margin-inline: auto !important;
+  }
+}
+
+@media (max-width: 631px) {
+  .how-it-works-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+  }
+
+  .how-it-works-grid > div:last-child {
+    grid-column: auto !important;
+    max-width: 100% !important;
+    margin-inline: 0 !important;
+  }
+}
+
 /* Tablets & Mobile Devices (< 768px) */
 @media (max-width: 768px) {
   /* Universal Mobile Scrollbar & Scroll Container Elimination */
@@ -156,60 +244,12 @@ html, body {
     transform: translateY(0);
   }
 
-  /* Header & Navigation Optimization */
-  .header {
-    padding: 10px 0;
-  }
-
-  .nav-container {
-    gap: 8px;
-  }
-
-  .brand-logo img {
-    height: 30px;
-  }
-
-  /* Hide Telegram button in mobile topbar, accessible in drawer */
-  .nav-actions .btn-secondary {
-    display: none !important;
-  }
-
-  .nav-actions {
-    gap: 8px;
-  }
-
-  .nav-actions .btn-primary {
-    padding: 7px 12px;
-    font-size: 0.8rem;
-  }
-
-  .mobile-toggle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 6px 10px;
-    font-size: 1.1rem;
-  }
-
-  .nav-links {
-    display: none;
-    position: fixed;
-    top: 56px;
-    left: 0;
-    right: 0;
-    background: rgba(10, 12, 20, 0.98);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--border-card);
-    padding: 24px 20px;
-    flex-direction: column;
-    gap: 18px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.9);
-    z-index: 99;
-  }
-
-  .nav-links.mobile-open {
-    display: flex;
+  .container {
+    padding-inline: 16px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    overflow-x: hidden !important;
   }
 
   /* Hero Section */
@@ -560,7 +600,8 @@ html, body {
     display: block !important;
     padding: 16px 12px !important;
     width: 100% !important;
-    max-width: 100% !important;
+    max-width: 500px !important;
+    margin-inline: auto !important;
     box-sizing: border-box !important;
     overflow: visible !important;
   }
@@ -571,13 +612,16 @@ html, body {
     border-radius: var(--radius-md);
     padding: 14px 10px !important;
     width: 100% !important;
-    max-width: 100% !important;
+    max-width: 480px !important;
+    margin-inline: auto !important;
     box-sizing: border-box !important;
     overflow: visible !important;
   }
 
   .cal-header {
     margin-bottom: 10px;
+    max-width: 460px;
+    margin-inline: auto;
   }
 
   .cal-month {
@@ -590,6 +634,8 @@ html, body {
     gap: 2px;
     text-align: center;
     margin-bottom: 6px;
+    max-width: 460px;
+    margin-inline: auto;
   }
 
   .day-header {
@@ -605,6 +651,8 @@ html, body {
     height: auto !important;
     min-height: 0 !important;
     margin-bottom: 8px !important;
+    max-width: 460px !important;
+    margin-inline: auto !important;
   }
 
   .day-btn, .day-blank {
@@ -619,6 +667,8 @@ html, body {
     gap: 6px;
     overscroll-behavior: contain;
     -webkit-overflow-scrolling: touch;
+    max-width: 460px !important;
+    margin-inline: auto !important;
   }
 
   .slot-btn {
@@ -629,7 +679,8 @@ html, body {
   /* Session Details on Mobile */
   .wizard-step {
     width: 100% !important;
-    max-width: 100% !important;
+    max-width: 480px !important;
+    margin-inline: auto !important;
     box-sizing: border-box !important;
   }
 
@@ -691,21 +742,37 @@ html, body {
     z-index: 1000;
   }
 
-  /* Modal Optimization on Mobile: Fix cross icon cutting & ample bottom scroll padding */
+  /* Modal Optimization on Mobile: Prevents wide horizontal stretching between 525px and 768px */
   .modal-overlay {
-    padding: 10px !important;
+    padding: 12px !important;
   }
 
   .modal-card {
-    padding: 18px 12px 65px !important;
+    padding: 24px 16px 65px !important;
     max-height: 92vh !important;
     width: 100% !important;
-    max-width: 100% !important;
+    max-width: 500px !important;
+    margin-inline: auto !important;
     box-sizing: border-box !important;
     overflow-y: auto !important;
     overscroll-behavior: contain !important;
     -webkit-overflow-scrolling: touch;
     position: relative !important;
+  }
+
+  #schedulerModal .scheduler-wrapper {
+    max-width: 460px !important;
+    margin-inline: auto !important;
+  }
+
+  #schedulerModal .calendar-card {
+    max-width: 460px !important;
+    margin-inline: auto !important;
+  }
+
+  #schedulerModal .modal-intro-header {
+    max-width: 460px !important;
+    margin-inline: auto !important;
   }
 
   .modal-close-btn {

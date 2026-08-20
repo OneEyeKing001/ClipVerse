@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" fill="none">
+  <defs>
+    <!-- Radial Background Glow -->
+    <radialGradient id="bgGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#a855f7" stop-opacity="0.18"/>
+      <stop offset="40%" stop-color="#7e22ce" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#07070a" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Emerald Center Glow -->
+    <radialGradient id="emeraldGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.6"/>
+      <stop offset="60%" stop-color="#10b981" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#10b981" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Hex Prism Outer Stroke Gradient -->
+    <linearGradient id="prismGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d8b4fe" stop-opacity="0.9"/>
+      <stop offset="50%" stop-color="#a855f7" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#6366f1" stop-opacity="0.8"/>
+    </linearGradient>
+
+    <!-- Inner Core Gradient -->
+    <linearGradient id="chevronGrad" x1="0%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#f5d0fe"/>
+      <stop offset="40%" stop-color="#c084fc"/>
+      <stop offset="100%" stop-color="#7c3aed"/>
+    </linearGradient>
+
+    <!-- Emerald Node Gradient -->
+    <radialGradient id="nodeGrad" cx="35%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#6ee7b7"/>
+      <stop offset="50%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#047857"/>
+    </radialGradient>
+
+    <!-- Glow Filters -->
+    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="laserGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="16" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background Base Canvas -->
+  <rect width="512" height="512" rx="128" fill="#07070a"/>
+  
+  <!-- Subtle Ambient Glow -->
+  <circle cx="256" cy="256" r="220" fill="url(#bgGlow)"/>
+  <circle cx="256" cy="180" r="100" fill="url(#emeraldGlow)"/>
+
+  <!-- Outer Hexagonal Tech Prism Outline (Matching Favicon Geometry) -->
+  <path d="M256 64 L432 160 L432 352 L256 448 L80 352 L80 160 Z" 
+        stroke="url(#prismGrad)" 
+        stroke-width="12" 
+        stroke-linecap="round"
+        stroke-linejoin="round" 
+        fill="none" 
+        opacity="0.8"
+        filter="url(#softGlow)"/>
+
+  <!-- Inner Hex Structure Lines (Subtle Kinetic Depth) -->
+  <path d="M256 64 L256 120 M432 352 L384 324 M80 352 L128 324" 
+        stroke="#a855f7" 
+        stroke-width="6" 
+        stroke-linecap="round"
+        opacity="0.3"/>
+
+  <!-- Central Kinetic 'V' Chevron / Video Clipping Playhead -->
+  <path d="M176 192 L256 320 L336 192" 
+        stroke="url(#chevronGrad)" 
+        stroke-width="28" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"
+        filter="url(#laserGlow)"/>
+
+  <!-- Secondary Inner Highlight Vertex -->
+  <path d="M176 192 L256 320 L336 192" 
+        stroke="#ffffff" 
+        stroke-width="8" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"
+        opacity="0.85"/>
+
+  <!-- Emerald AI Optic Core / Neural Focus Node (from Favicon) -->
+  <circle cx="256" cy="176" r="26" fill="url(#nodeGrad)" filter="url(#laserGlow)"/>
+  <circle cx="250" cy="170" r="8" fill="#ffffff" opacity="0.8"/>
+  <circle cx="256" cy="176" r="34" stroke="#10b981" stroke-width="3" stroke-dasharray="4 6" opacity="0.6"/>
+
+  <!-- Apex Anchor Node -->
+  <circle cx="256" cy="320" r="6" fill="#c084fc" filter="url(#softGlow)"/>
+</svg>
