@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" fill="none">
+  <defs>
+    <!-- Background Radial Glow -->
+    <radialGradient id="bgGlow512" cx="50%" cy="38%" r="45%">
+      <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.2"/>
+      <stop offset="60%" stop-color="#6366f1" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#07070a" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Linear Gradient for Violet Neon Mark -->
+    <linearGradient id="cvGradViolet512" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c084fc"/>
+      <stop offset="50%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#6366f1"/>
+    </linearGradient>
+
+    <!-- Glow Filter -->
+    <filter id="cvGlowViolet512" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="8" result="glow"/>
+      <feMerge>
+        <feMergeNode in="glow"/>
+        <feMergeNode in="glow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Dark Obsidian Base Background -->
+  <rect width="512" height="512" rx="64" fill="#07070a"/>
+  <circle cx="256" cy="190" r="180" fill="url(#bgGlow512)"/>
+
+  <!-- Centered Exact Emblem Geometry (Scaled ~4.8x) -->
+  <g transform="translate(256, 185) scale(4.8) translate(-24, -24)">
+    <!-- Outer Hex Prism / Frame -->
+    <path d="M24 4 L42 14 L42 34 L24 44 L6 34 L6 14 Z" 
+          stroke="url(#cvGradViolet512)" 
+          stroke-width="2.5" 
+          fill="none" 
+          opacity="0.45"/>
+    
+    <!-- Central Dimensional V / Clip Play Waveform -->
+    <path d="M15 16 L24 32 L33 16" 
+          stroke="url(#cvGradViolet512)" 
+          stroke-width="3.5" 
+          stroke-linecap="round" 
+          stroke-linejoin="round" 
+          filter="url(#cvGlowViolet512)"/>
+
+    <!-- Upper glowing node -->
+    <circle cx="24" cy="18" r="3.5" fill="#c084fc" filter="url(#cvGlowViolet512)"/>
+    <!-- Lower apex anchor dot -->
+    <circle cx="24" cy="32" r="2.5" fill="#a855f7"/>
+  </g>
+
+  <!-- Typographic Wordmark Below Emblem -->
+  <g transform="translate(256, 388)">
+    <text text-anchor="middle" font-family="'Outfit', 'Lexend', 'Plus Jakarta Sans', system-ui, sans-serif" font-weight="800" font-size="46" letter-spacing="4" fill="#ffffff">
+      CLIP<tspan fill="url(#cvGradViolet512)">VERSE</tspan>
+    </text>
+  </g>
+
+  <!-- AI-SHIELD Badge Tagline Below Text -->
+  <g transform="translate(256, 436)">
+    <text text-anchor="middle" font-family="'JetBrains Mono', monospace" font-weight="700" font-size="16" letter-spacing="6" fill="#10b981">
+      [AI-SHIELD]
+    </text>
+  </g>
+</svg>

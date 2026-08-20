@@ -73,32 +73,22 @@
   budgetSlider.addEventListener('input', updateCalculator);
   updateCalculator();
 
-  // Lock In Campaign Plan Button -> Map Budget Tier & Smooth Scroll to Calendar
+  // Lock In Campaign Plan Button -> Map Budget & Smooth Scroll to Homepage Calendar
   if (calcLockBtn) {
     calcLockBtn.addEventListener('click', (e) => {
       e.preventDefault();
       const currentBudget = parseInt(budgetSlider.value);
-      const matchedTier = getBudgetTier(currentBudget);
+      const formattedBudget = formatCurrency(currentBudget);
 
-      // Trigger global budget selector helper if available
-      if (typeof window.setCampaignBudget === 'function') {
-        window.setCampaignBudget(matchedTier);
+      // Lock in budget notes into Homepage Cal.com only
+      if (typeof window.lockInCampaignBudget === 'function') {
+        window.lockInCampaignBudget(formattedBudget);
       }
 
       // Smooth scroll to scheduler
       const schedulerEl = document.getElementById('scheduler');
       if (schedulerEl) {
         schedulerEl.scrollIntoView({ behavior: 'smooth' });
-
-        // Smoothly scroll to scheduler without box shadow glow flare
-        const bookingCard = document.getElementById('bookingSuccessCard');
-        if (bookingCard) {
-          bookingCard.style.transition = 'border-color 0.4s ease';
-          bookingCard.style.borderColor = 'var(--accent-primary)';
-          setTimeout(() => {
-            bookingCard.style.borderColor = '';
-          }, 1200);
-        }
       }
     });
   }

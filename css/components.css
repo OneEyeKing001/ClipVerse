@@ -816,8 +816,91 @@
 }
 
 /* --------------------------------------------------------------------------
-   7. Meeting Scheduler Section & Modal (Custom Dropdown & Matching Scrollbars)
+   7. Meeting Scheduler Section & Modal (Cal.com Live Integration & Confirmation)
    -------------------------------------------------------------------------- */
+body.cal-modal-open {
+  overflow: hidden !important;
+  touch-action: none;
+}
+
+.cal-inline-wrapper {
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-lg);
+  padding: 0;
+  width: 100%;
+  max-width: 1040px;
+  margin-inline: auto;
+  min-height: 540px;
+  height: auto;
+  overflow: visible;
+  box-shadow: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#cal-inline-embed {
+  width: 100%;
+  min-height: 520px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: #0c0f18;
+}
+
+#cal-inline-embed iframe {
+  width: 100% !important;
+  min-height: 520px !important;
+  border-radius: var(--radius-md) !important;
+  border: none !important;
+  background-color: #0c0f18 !important;
+}
+
+/* Cal.com Modal Popup Solid Opaque Overlays */
+iframe[name*="cal-embed"],
+iframe[src*="cal.com"],
+[data-cal-modal],
+[data-cal-modal] > div,
+.cal-modal,
+.cal-modal-container {
+  background-color: #0c0f18 !important;
+  background: #0c0f18 !important;
+  border-radius: var(--radius-md);
+}
+
+div[style*="z-index: 99999"],
+div[style*="z-index:99999"],
+div[data-cal-modal-overlay] {
+  background: rgba(4, 6, 12, 0.92) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+}
+
+@media (max-width: 768px) {
+  .cal-inline-wrapper {
+    padding: 0;
+    border: none;
+    border-radius: var(--radius-md);
+    max-width: 100%;
+    min-height: 480px;
+    max-height: 75vh;
+    overflow: hidden;
+    background: transparent;
+    box-shadow: none;
+    position: relative;
+  }
+  #cal-inline-embed {
+    min-height: 480px !important;
+    max-height: 75vh !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+  }
+  #cal-inline-embed iframe {
+    min-height: 480px !important;
+    border-radius: var(--radius-md) !important;
+  }
+}
+
 .scheduler-wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
