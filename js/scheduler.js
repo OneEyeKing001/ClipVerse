@@ -43,8 +43,8 @@
   // Agency Configuration
   const AGENCY_CONFIG = {
     agencyName: 'ClipVerse Strategy Team',
-    agencyEmail: 'contact@clipverse.agency',
-    telegramHandle: 'ClipVerse',
+    agencyEmail: 'clipverseofficial001@gmail.com',
+    telegramHandle: 'ClipVerseTeam',
     calUsername: 'clipverse', // Cal.com username (cal.com/clipverse)
     calEventSlug: '30min'     // Specific event slug (cal.com/clipverse/30min)
   };

@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 500" width="1500" height="500" fill="none">
+  <defs>
+    <!-- Background Radial Glow -->
+    <radialGradient id="twBgGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.22"/>
+      <stop offset="50%" stop-color="#6366f1" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#07070a" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Linear Gradient for Violet Neon Mark -->
+    <linearGradient id="twGradViolet" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c084fc"/>
+      <stop offset="50%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#6366f1"/>
+    </linearGradient>
+
+    <!-- Glow Filter -->
+    <filter id="twGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="8" result="glow"/>
+      <feMerge>
+        <feMergeNode in="glow"/>
+        <feMergeNode in="glow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background Base Canvas -->
+  <rect width="1500" height="500" fill="#07070a"/>
+  
+  <!-- Subtle Ambient Glow -->
+  <circle cx="750" cy="250" r="450" fill="url(#twBgGlow)"/>
+
+  <!-- Centered Safe Area Logo Lockup (Scaled to fit perfectly on desktop & mobile Twitter headers) -->
+  <g transform="translate(750, 250) scale(1.6) translate(-170, -45)">
+    <!-- Unique Clip Monogram Geometry -->
+    <g transform="translate(0, 0)">
+      <!-- Outer Hex Prism / Frame -->
+      <path d="M48 8 L84 28 L84 68 L48 88 L12 68 L12 28 Z" stroke="url(#twGradViolet)" stroke-width="5" fill="none" opacity="0.45"/>
+      
+      <!-- Central Dimensional V / Clip Play Waveform -->
+      <path d="M30 32 L48 64 L66 32" stroke="url(#twGradViolet)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" filter="url(#twGlow)"/>
+      <circle cx="48" cy="36" r="7" fill="#c084fc" filter="url(#twGlow)"/>
+      <circle cx="48" cy="64" r="5" fill="#a855f7"/>
+    </g>
+    
+    <!-- Typographic Wordmark -->
+    <g transform="translate(108, 66)">
+      <text font-family="'Outfit', 'Lexend', 'Plus Jakarta Sans', system-ui, sans-serif" font-weight="800" font-size="48" letter-spacing="3" fill="#ffffff">
+        CLIP<tspan fill="url(#twGradViolet)">VERSE</tspan>
+      </text>
+      <!-- [AI-SHIELD] Written on top right of VERSE -->
+      <text x="232" y="-28" font-family="'JetBrains Mono', monospace" font-weight="700" font-size="16" letter-spacing="3" fill="#10b981">
+        [AI-SHIELD]
+      </text>
+    </g>
+  </g>
+</svg>

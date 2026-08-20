@@ -1,38 +1,55 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 120" width="480" height="120" fill="none">
   <defs>
+    <!-- Background Radial Glow -->
+    <radialGradient id="fullBgGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.15"/>
+      <stop offset="60%" stop-color="#6366f1" stop-opacity="0.04"/>
+      <stop offset="100%" stop-color="#07070a" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Linear Gradient for Violet Neon Mark -->
     <linearGradient id="cvGradVioletFull" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#c084fc"/>
       <stop offset="50%" stop-color="#8b5cf6"/>
       <stop offset="100%" stop-color="#6366f1"/>
     </linearGradient>
+
+    <!-- Glow Filter -->
     <filter id="cvGlowVioletFull" x="-30%" y="-30%" width="160%" height="160%">
-      <feGaussianBlur stdDeviation="6" result="glow"/>
+      <feGaussianBlur stdDeviation="5" result="glow"/>
       <feMerge>
         <feMergeNode in="glow"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
   </defs>
-  
-  <!-- Unique Clip Monogram Geometry (2x Scaled) -->
-  <g transform="translate(12, 12)">
-    <!-- Outer Hex Prism / Frame -->
-    <path d="M48 8 L84 28 L84 68 L48 88 L12 68 L12 28 Z" stroke="url(#cvGradVioletFull)" stroke-width="5" fill="none" opacity="0.45"/>
+
+  <!-- Dark Obsidian Base Background with Generous Margins -->
+  <rect width="480" height="120" rx="16" fill="#07070a"/>
+  <circle cx="240" cy="60" r="100" fill="url(#fullBgGlow)"/>
+
+  <!-- Centered & Zoomed-Out Logo Group (Scaled 0.70x with generous padding) -->
+  <g transform="translate(240, 60) scale(0.70) translate(-170, -45)">
+    <!-- Unique Clip Monogram Geometry -->
+    <g transform="translate(0, 0)">
+      <!-- Outer Hex Prism / Frame -->
+      <path d="M48 8 L84 28 L84 68 L48 88 L12 68 L12 28 Z" stroke="url(#cvGradVioletFull)" stroke-width="5" fill="none" opacity="0.45"/>
+      
+      <!-- Central Dimensional V / Clip Play Waveform -->
+      <path d="M30 32 L48 64 L66 32" stroke="url(#cvGradVioletFull)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" filter="url(#cvGlowVioletFull)"/>
+      <circle cx="48" cy="36" r="7" fill="#c084fc" filter="url(#cvGlowVioletFull)"/>
+      <circle cx="48" cy="64" r="5" fill="#a855f7"/>
+    </g>
     
-    <!-- Central Dimensional V / Clip Play Waveform -->
-    <path d="M30 32 L48 64 L66 32" stroke="url(#cvGradVioletFull)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" filter="url(#cvGlowVioletFull)"/>
-    <circle cx="48" cy="36" r="7" fill="#c084fc" filter="url(#cvGlowVioletFull)"/>
-    <circle cx="48" cy="64" r="5" fill="#a855f7"/>
-  </g>
-  
-  <!-- Typographic Wordmark -->
-  <g transform="translate(120, 78)">
-    <text font-family="'Outfit', 'Lexend', 'Plus Jakarta Sans', system-ui, sans-serif" font-weight="800" font-size="48" letter-spacing="3" fill="#ffffff">
-      CLIP<tspan fill="url(#cvGradVioletFull)">VERSE</tspan>
-    </text>
-    <!-- [AI-SHIELD] Written on top right of VERSE -->
-    <text x="232" y="-28" font-family="'JetBrains Mono', monospace" font-weight="700" font-size="16" letter-spacing="3" fill="#10b981">
-      [AI-SHIELD]
-    </text>
+    <!-- Typographic Wordmark -->
+    <g transform="translate(108, 66)">
+      <text font-family="'Outfit', 'Lexend', 'Plus Jakarta Sans', system-ui, sans-serif" font-weight="800" font-size="48" letter-spacing="3" fill="#ffffff">
+        CLIP<tspan fill="url(#cvGradVioletFull)">VERSE</tspan>
+      </text>
+      <!-- [AI-SHIELD] Written on top right of VERSE -->
+      <text x="232" y="-28" font-family="'JetBrains Mono', monospace" font-weight="700" font-size="16" letter-spacing="3" fill="#10b981">
+        [AI-SHIELD]
+      </text>
+    </g>
   </g>
 </svg>
