@@ -9,3 +9,4 @@ Optimize CSS bundle size
 Update meta tags for SEO
 Add animation transitions
 Fix cross-browser compatibility
+Update Vercel deployment config
